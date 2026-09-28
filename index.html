@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerd Font Browser</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark">N<span>F</span></span><span>Nerd Font Browser</span></div>
+    <a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts downloads ↗</a>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">THE FONT INDEX</p>
+      <h1>Find your next<br><em>terminal font.</em></h1>
+      <p class="lede">Explore Nerd Fonts side by side in a sortable index. Filter the list, open a preview, and use ↑ ↓ to move through your results.</p>
+      <div class="intro-meta"><span id="catalog-version">Loading catalog…</span><span class="separator">·</span><span id="result-count">— fonts</span></div>
+    </section>
+
+    <section class="browser" aria-label="Font browser">
+      <div class="browser-top"><div><p class="eyebrow">01 / EXPLORE</p><h2>Font library</h2></div><span class="shortcut">Click a name to preview <kbd>↑</kbd><kbd>↓</kbd></span></div>
+      <div class="filters" role="group" aria-label="Filter fonts">
+        <label class="search-label">Search fonts<input id="search" type="search" placeholder="Try Iosevka, JetBrains…" autocomplete="off"></label>
+        <label>Serif<select id="serif-filter"><option value="any">Any</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+        <label>Nerd glyphs<select id="glyph-filter"><option value="any">Any</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+        <label>Min. glyphs<input id="glyph-min" type="number" min="0" step="100" placeholder="Any"></label>
+        <label>Max. height at 16px<input id="height-max" type="number" min="0" step="0.5" placeholder="Any"></label>
+        <button id="clear-filters" type="button" class="clear-button">Clear filters</button>
+      </div>
+      <div class="table-scroll"><table><thead><tr>
+        <th scope="col"><button type="button" data-sort="name">Font name <span aria-hidden="true">↕</span></button></th>
+        <th scope="col"><button type="button" data-sort="serif">Serif <span aria-hidden="true">↕</span></button></th>
+        <th scope="col" class="plain-heading">Nerd glyphs</th>
+        <th scope="col"><button type="button" data-sort="glyphCount">Glyph count <span aria-hidden="true">↕</span></button></th>
+        <th scope="col"><button type="button" data-sort="height">Height at 16px <span aria-hidden="true">↕</span></button></th>
+      </tr></thead><tbody id="font-rows"></tbody></table></div>
+      <p id="empty-state" class="empty-state" hidden>No fonts match these filters. Try clearing one.</p>
+      <div class="table-footer"><span>Height uses each font’s OpenType line metrics at 16 px.</span><span id="footer-count"></span></div>
+    </section>
+  </main>
+
+  <dialog id="preview" aria-labelledby="preview-name">
+    <div class="dialog-shell">
+      <div class="dialog-header"><div><p class="eyebrow">LIVE PREVIEW <span id="preview-position"></span></p><h2 id="preview-name"></h2></div><button id="close-preview" class="icon-button" type="button" aria-label="Close preview">×</button></div>
+      <div class="preview-controls"><label>Size <input id="preview-size" type="range" min="12" max="36" value="16"><output id="size-value">16 px</output></label><div class="preview-nav"><button id="previous-font" type="button" aria-label="Previous visible font">↑ Previous</button><button id="next-font" type="button" aria-label="Next visible font">↓ Next</button></div></div>
+      <p id="preview-status" class="preview-status" role="status"></p>
+      <div id="preview-surface" class="preview-surface"><div class="preview-caption">CODE SAMPLE</div><pre id="code-sample">// The quick brown fox jumps over the lazy dog.
+const glyphs = ["", "󰘧", "󰊢", "󰍉"];
+function preview(font) {
+  return `${font.name} → 0123456789`;
+}
+// Il1| O0o · !@#$%^&*()_+-=[]{};:'",.<>/?</pre><div class="preview-caption second-caption">YOUR TEXT</div><textarea id="custom-sample" aria-label="Custom preview text" spellcheck="false" placeholder="Type your own text here…">Sphinx of black quartz, judge my vow.
+0123456789  →  != == ===  {} [] ()</textarea></div>
+      <div class="dialog-footer"><span id="preview-details"></span><a id="download-link" target="_blank" rel="noopener noreferrer">Download font ↗</a></div>
+    </div>
+  </dialog>
+</body>
+</html>

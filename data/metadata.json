@@ -1,0 +1,357 @@
+{
+  "0xProto": {
+    "serif": false,
+    "heightEm": 1.56,
+    "glyphCount": 11777
+  },
+  "AdwaitaMono": {
+    "serif": false,
+    "heightEm": 1.25,
+    "glyphCount": 19343
+  },
+  "Agave": {
+    "serif": false,
+    "heightEm": 1.0,
+    "glyphCount": 13101
+  },
+  "AnnotationMono": {
+    "serif": false,
+    "heightEm": 1.25,
+    "glyphCount": 12050
+  },
+  "AnonymousPro": {
+    "serif": true,
+    "heightEm": 1.0,
+    "glyphCount": 11616
+  },
+  "Arimo": {
+    "serif": false,
+    "heightEm": 1.15,
+    "glyphCount": 13916
+  },
+  "AtkinsonHyperlegibleMono": {
+    "serif": false,
+    "heightEm": 1.197,
+    "glyphCount": 11405
+  },
+  "AurulentSansMono": {
+    "serif": false,
+    "heightEm": 1.302,
+    "glyphCount": 11307
+  },
+  "BigBlueTerminal": {
+    "serif": false,
+    "heightEm": 1.0,
+    "glyphCount": 11280
+  },
+  "BitstreamVeraSansMono": {
+    "serif": false,
+    "heightEm": 1.164,
+    "glyphCount": 11309
+  },
+  "CascadiaCode": {
+    "serif": false,
+    "heightEm": 1.162,
+    "glyphCount": 14938
+  },
+  "CascadiaMono": {
+    "serif": false,
+    "heightEm": 1.162,
+    "glyphCount": 14938
+  },
+  "CodeNewRoman": {
+    "serif": true,
+    "heightEm": 1.171,
+    "glyphCount": 13722
+  },
+  "ComicShannsMono": {
+    "serif": false,
+    "heightEm": 1.2,
+    "glyphCount": 11375
+  },
+  "CommitMono": {
+    "serif": false,
+    "heightEm": 1.1,
+    "glyphCount": 12535
+  },
+  "Cousine": {
+    "serif": false,
+    "heightEm": 1.133,
+    "glyphCount": 13330
+  },
+  "D2Coding": {
+    "serif": false,
+    "heightEm": 1.16,
+    "glyphCount": 36637
+  },
+  "DaddyTimeMono": {
+    "serif": true,
+    "heightEm": 1.281,
+    "glyphCount": 11806
+  },
+  "DejaVuSansMono": {
+    "serif": false,
+    "heightEm": 1.164,
+    "glyphCount": 14256
+  },
+  "DepartureMono": {
+    "serif": false,
+    "heightEm": 1.273,
+    "glyphCount": 12059
+  },
+  "DroidSansMono": {
+    "serif": false,
+    "heightEm": 1.164,
+    "glyphCount": 11940
+  },
+  "EnvyCodeR": {
+    "serif": false,
+    "heightEm": 1.157,
+    "glyphCount": 11638
+  },
+  "FantasqueSansMono": {
+    "serif": false,
+    "heightEm": 1.049,
+    "glyphCount": 11911
+  },
+  "FiraCode": {
+    "serif": false,
+    "heightEm": 1.231,
+    "glyphCount": 12885
+  },
+  "FiraMono": {
+    "serif": false,
+    "heightEm": 1.2,
+    "glyphCount": 12372
+  },
+  "GeistMono": {
+    "serif": false,
+    "heightEm": 1.3,
+    "glyphCount": 12039
+  },
+  "Go-Mono": {
+    "serif": true,
+    "heightEm": 1.156,
+    "glyphCount": 11703
+  },
+  "Gohu": {
+    "serif": true,
+    "heightEm": 1.184,
+    "glyphCount": 11234
+  },
+  "GoogleSansCode": {
+    "serif": false,
+    "heightEm": 1.252,
+    "glyphCount": 11573
+  },
+  "Hack": {
+    "serif": false,
+    "heightEm": 1.164,
+    "glyphCount": 12440
+  },
+  "Hasklig": {
+    "serif": false,
+    "heightEm": 1.257,
+    "glyphCount": 12483
+  },
+  "HeavyData": {
+    "serif": false,
+    "heightEm": 1.15,
+    "glyphCount": 10867
+  },
+  "Hermit": {
+    "serif": false,
+    "heightEm": 1.414,
+    "glyphCount": 11408
+  },
+  "iA-Writer": {
+    "serif": false,
+    "heightEm": 1.3,
+    "glyphCount": 11891
+  },
+  "3270": {
+    "serif": true,
+    "heightEm": 1.09,
+    "glyphCount": 13170
+  },
+  "IBMPlexMono": {
+    "serif": false,
+    "heightEm": 1.3,
+    "glyphCount": 12005
+  },
+  "Inconsolata": {
+    "serif": false,
+    "heightEm": 1.049,
+    "glyphCount": 11845
+  },
+  "InconsolataGo": {
+    "serif": false,
+    "heightEm": 1.049,
+    "glyphCount": 11343
+  },
+  "InconsolataLGC": {
+    "serif": false,
+    "heightEm": 1.11,
+    "glyphCount": 14146
+  },
+  "IntelOneMono": {
+    "serif": false,
+    "heightEm": 1.38,
+    "glyphCount": 11918
+  },
+  "Iosevka": {
+    "serif": false,
+    "heightEm": 1.25,
+    "glyphCount": 57317
+  },
+  "IosevkaTerm": {
+    "serif": false,
+    "heightEm": 1.25,
+    "glyphCount": 57317
+  },
+  "IosevkaTermSlab": {
+    "serif": true,
+    "heightEm": 1.25,
+    "glyphCount": 57320
+  },
+  "JetBrainsMono": {
+    "serif": false,
+    "heightEm": 1.32,
+    "glyphCount": 12608
+  },
+  "Lekton": {
+    "serif": false,
+    "heightEm": 1.0,
+    "glyphCount": 11990
+  },
+  "LiberationMono": {
+    "serif": false,
+    "heightEm": 1.133,
+    "glyphCount": 13414
+  },
+  "Lilex": {
+    "serif": false,
+    "heightEm": 1.3,
+    "glyphCount": 12304
+  },
+  "MPlus": {
+    "serif": false,
+    "heightEm": 1.235,
+    "glyphCount": 17629
+  },
+  "MartianMono": {
+    "serif": false,
+    "heightEm": 1.2,
+    "glyphCount": 11846
+  },
+  "Meslo": {
+    "serif": false,
+    "heightEm": 1.555,
+    "glyphCount": 13579
+  },
+  "Monaspace": {
+    "serif": false,
+    "heightEm": 1.245,
+    "glyphCount": 14398
+  },
+  "Monofur": {
+    "serif": false,
+    "heightEm": 1.002,
+    "glyphCount": 11661
+  },
+  "Monoid": {
+    "serif": false,
+    "heightEm": 1.333,
+    "glyphCount": 11817
+  },
+  "Mononoki": {
+    "serif": false,
+    "heightEm": 1.123,
+    "glyphCount": 11793
+  },
+  "Noto": {
+    "serif": false,
+    "heightEm": 1.172,
+    "glyphCount": 11937
+  },
+  "OpenDyslexic": {
+    "serif": false,
+    "heightEm": 1.75,
+    "glyphCount": 11571
+  },
+  "Overpass": {
+    "serif": false,
+    "heightEm": 1.532,
+    "glyphCount": 11897
+  },
+  "ProFont": {
+    "serif": false,
+    "heightEm": 1.233,
+    "glyphCount": 11300
+  },
+  "ProggyClean": {
+    "serif": false,
+    "heightEm": 0.812,
+    "glyphCount": 11298
+  },
+  "Recursive": {
+    "serif": false,
+    "heightEm": 1.2,
+    "glyphCount": 12381
+  },
+  "RobotoMono": {
+    "serif": false,
+    "heightEm": 1.319,
+    "glyphCount": 12040
+  },
+  "ShareTechMono": {
+    "serif": false,
+    "heightEm": 1.127,
+    "glyphCount": 11307
+  },
+  "SourceCodePro": {
+    "serif": false,
+    "heightEm": 1.257,
+    "glyphCount": 12442
+  },
+  "SpaceMono": {
+    "serif": false,
+    "heightEm": 1.481,
+    "glyphCount": 11802
+  },
+  "Terminus": {
+    "serif": false,
+    "heightEm": 1.09,
+    "glyphCount": 11985
+  },
+  "Tinos": {
+    "serif": true,
+    "heightEm": 1.15,
+    "glyphCount": 13188
+  },
+  "Ubuntu": {
+    "serif": false,
+    "heightEm": 1.149,
+    "glyphCount": 11871
+  },
+  "UbuntuMono": {
+    "serif": false,
+    "heightEm": 1.0,
+    "glyphCount": 12277
+  },
+  "UbuntuSans": {
+    "serif": false,
+    "heightEm": 1.2,
+    "glyphCount": 12343
+  },
+  "VictorMono": {
+    "serif": false,
+    "heightEm": 1.409,
+    "glyphCount": 12297
+  },
+  "ZedMono": {
+    "serif": false,
+    "heightEm": 1.25,
+    "glyphCount": 35304
+  }
+}
