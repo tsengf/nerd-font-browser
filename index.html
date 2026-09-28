@@ -9,19 +9,19 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><span class="brand-mark">N<span>F</span></span><span>Nerd Font Browser</span></div>
-    <a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts downloads ↗</a>
+    <a class="brand" href="/" aria-label="Nerd Font Browser home"><span class="brand-mark" aria-hidden="true">Nf</span><span>Nerd Font Browser</span></a>
+    <div class="progress-copy"><span id="result-count">— fonts</span><span class="meta-separator">·</span><span id="catalog-version">Loading catalog…</span></div>
+    <a class="source-link" href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Font downloads ↗</a>
   </header>
   <main>
     <section class="intro">
       <p class="eyebrow">THE FONT INDEX</p>
-      <h1>Find your next<br><em>terminal font.</em></h1>
-      <p class="lede">Explore Nerd Fonts side by side in a sortable index. Filter the list, open a preview, and use ↑ ↓ to move through your results.</p>
-      <div class="intro-meta"><span id="catalog-version">Loading catalog…</span><span class="separator">·</span><span id="result-count">— fonts</span></div>
+      <h1>Find your next <em>terminal font.</em></h1>
+      <p class="lede">Filter the Nerd Fonts catalog by style and metrics. Click a font name to see it in action. <span class="shortcut-hint"><kbd>↑</kbd><kbd>↓</kbd><b>Browse visible fonts</b></span></p>
     </section>
 
     <section class="browser" aria-label="Font browser">
-      <div class="browser-top"><div><p class="eyebrow">01 / EXPLORE</p><h2>Font library</h2></div><span class="shortcut">Click a name to preview <kbd>↑</kbd><kbd>↓</kbd></span></div>
+      <div class="browser-top"><div><p class="eyebrow">NERD FONTS CATALOG</p><h2>Explore the typefaces</h2></div><p>Every row is a patched Nerd Font. Filter the list, then click a name to preview code in that typeface.</p></div>
       <div class="filters" role="group" aria-label="Filter fonts">
         <label class="search-label">Search fonts<input id="search" type="search" placeholder="Try Iosevka, JetBrains…" autocomplete="off"></label>
         <label>Serif<select id="serif-filter"><option value="any">Any</option><option value="yes">Yes</option><option value="no">No</option></select></label>
