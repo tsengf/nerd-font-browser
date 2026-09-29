@@ -9,7 +9,7 @@ The five columns beside each font record round decisions. Click a round cell to 
 Requires Python 3.9 or newer. No packages need to be installed.
 
 ```sh
-python3 server.py
+./server.py
 ```
 
 Open <http://127.0.0.1:8788>. The first preview of each font downloads its ZIP from the pinned Nerd Fonts release and caches one regular font file in `fonts/`. Later previews use that cache. The app is local; the browser only talks to this server.
