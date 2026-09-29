@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nerd Font Browser</title>
-  <link rel="stylesheet" href="/styles.css?v=20">
-  <script defer src="/app.js?v=17"></script>
+  <link rel="stylesheet" href="/styles.css?v=22">
+  <script defer src="/app.js?v=18"></script>
 </head>
 <body>
   <header class="site-header">
@@ -24,12 +24,7 @@
     <section class="preview-panel" aria-labelledby="preview-name">
       <div class="preview-header"><p class="eyebrow"><span id="active-round-label">ROUND 1</span> <span id="preview-position"></span></p><div class="preview-title-row"><h2 id="preview-name">Choose a font</h2><div class="preview-nav"><label class="size-control">Size <input id="preview-size" type="number" min="12" max="36" step="1" value="16" aria-label="Preview font size in pixels">px</label><button id="previous-font" type="button" aria-label="Previous font" disabled>↑ Previous</button><button id="next-font" type="button" aria-label="Next font" disabled>↓ Next</button><button id="reject-font" type="button" aria-label="Reject selected font (X)" title="Reject selected font (X)" aria-pressed="false" disabled>X Reject</button></div></div></div>
       <p id="preview-details" class="preview-details"></p>
-      <div id="preview-surface" class="preview-surface" hidden><div class="preview-caption">CODE SAMPLE</div><pre id="code-sample"><span class="code-comment">// The quick brown fox jumps over the lazy dog.</span>
-<span class="code-keyword">const</span> glyphs <span class="code-operator">=</span> [<span class="code-string">""</span>, <span class="code-string">"󰘧"</span>, <span class="code-string">"󰊢"</span>, <span class="code-string">"󰍉"</span>];
-<span class="code-keyword">function</span> <span class="code-function">preview</span>(font) {
-  <span class="code-keyword">return</span> <span class="code-string">`${</span>font.name<span class="code-string">} → 0123456789`</span>;
-}
-<span class="code-comment">// Il1| O0o · !@#$%^&amp;*()_+-=[]{};:'",.&lt;&gt;/?</span></pre><div class="preview-caption second-caption">YOUR TEXT</div><textarea id="custom-sample" aria-label="Custom preview text" spellcheck="false" placeholder="Type your own text here…">Sphinx of black quartz, judge my vow.
+      <div id="preview-surface" class="preview-surface" hidden><div class="preview-caption">CODE SAMPLE · snippet.c</div><pre id="code-sample">Loading snippet.c…</pre><div class="preview-caption second-caption">YOUR TEXT</div><textarea id="custom-sample" aria-label="Custom preview text" spellcheck="false" placeholder="Type your own text here…">Sphinx of black quartz, judge my vow.
 0123456789  →  != == ===  {} [] ()</textarea></div>
       <div class="preview-footer"><span id="preview-status" role="status">Select a font from the list.</span><a id="download-link" target="_blank" rel="noopener noreferrer" hidden>Download font ↗</a></div>
     </section>

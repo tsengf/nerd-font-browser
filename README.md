@@ -14,6 +14,8 @@ python3 server.py
 
 Open <http://127.0.0.1:8788>. The first preview of each font downloads its ZIP from the pinned Nerd Fonts release and caches one regular font file in `fonts/`. Later previews use that cache. The app is local; the browser only talks to this server.
 
+The code preview uses the same `snippet.c` sample as Nerd Font Ranker.
+
 ## Preview details
 
 - **Serif** comes from the font's OpenType family class, plus named overrides for fonts whose classification is missing or incorrect. Style categories are a guide; some fonts have only subtle serifs.

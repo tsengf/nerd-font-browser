@@ -48,7 +48,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .round-nav button:hover:not(:disabled) { border-color: var(--acid); color: var(--acid); }
 .round-nav button:disabled { opacity: .4; cursor: default; }
 .list-status { margin: 0; padding: 18px 24px; color: var(--muted); font-size: 13px; }
-.round-table-scroll { flex: 1; min-height: 0; overflow: auto; }
+.round-table-scroll { flex: 1; min-height: 0; overflow: auto; scroll-padding-top: 42px; }
 .round-table { width: 100%; min-width: 430px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
 .round-table th { position: sticky; top: 0; z-index: 1; height: 42px; border-bottom: 1px solid var(--line); background: var(--panel); color: var(--muted); font-size: 10px; font-weight: 700; text-align: center; }
 .round-table th:first-child { width: 45%; padding-left: 24px; text-align: left; }
@@ -90,7 +90,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .preview-surface pre { overflow: auto; margin: 18px 0 27px; font: inherit; white-space: pre; }
 .code-comment { color: #71786b; }
 .code-keyword { color: #e587ff; }
+.code-type { color: #7ccff2; }
+.code-preprocessor { color: #f1cc68; }
 .code-function { color: #d7ff43; }
+.code-number { color: #ffac69; }
 .code-string { color: #9ed37a; }
 .code-operator { color: #ff8d74; }
 .second-caption { padding-top: 19px; border-top: 1px solid #242720; }

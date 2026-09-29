@@ -178,10 +178,10 @@ class Handler(BaseHTTPRequestHandler):
             except (OSError, ValueError, zipfile.BadZipFile) as error:
                 self.send_json({"error": str(error)}, HTTPStatus.BAD_GATEWAY)
             return
-        if path in ("/", "/index.html", "/app.js", "/styles.css"):
+        if path in ("/", "/index.html", "/app.js", "/styles.css", "/snippet.c"):
             file = ROOT / ("index.html" if path == "/" else path.lstrip("/"))
             content_type = {".html": "text/html", ".js": "text/javascript",
-                            ".css": "text/css"}[file.suffix]
+                            ".css": "text/css", ".c": "text/plain"}[file.suffix]
             self.send_bytes(file.read_bytes(), content_type + "; charset=utf-8")
             return
         self.send_error(HTTPStatus.NOT_FOUND)

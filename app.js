@@ -2,6 +2,69 @@ const $ = (selector) => document.querySelector(selector);
 const state = { fonts: [], metadata: {}, selected: null, displayed: null, loadToken: 0, round: 1, decisions: {}, storageKey: null, previewSize: 16 };
 const loadedFaces = new Map();
 const ROUND_COUNT = 5;
+const cKeywords = new Set([
+  "auto", "break", "case", "const", "continue", "default", "do", "else", "enum",
+  "extern", "for", "goto", "if", "register", "return", "sizeof", "static",
+  "struct", "switch", "typedef", "union", "volatile", "while", "_Alignas",
+  "_Alignof", "_Atomic", "_Generic", "_Noreturn", "_Static_assert", "_Thread_local",
+]);
+const cTypes = new Set([
+  "bool", "char", "double", "float", "int", "long", "short", "signed", "unsigned",
+  "void", "size_t", "int8_t", "int16_t", "int32_t", "int64_t", "uint8_t",
+  "uint16_t", "uint32_t", "uint64_t", "Point",
+]);
+const cTokenPattern = /\/\/.*$|\/\*.*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b[A-Za-z_]\w*\b|\b(?:0[xX][0-9A-Fa-f]+|\d+(?:\.\d+)?)\w*\b|(?:>>=|<<=|==|!=|<=|>=|&&|\|\||\+\+|--|->|<<|>>|[+\-*/%=<>!&|^~?:])/g;
+
+function cTokenClass(token, index, line) {
+  if (token.startsWith("//") || token.startsWith("/*")) return "code-comment";
+  if (token.startsWith('"') || token.startsWith("'")) return "code-string";
+  if (cKeywords.has(token)) return "code-keyword";
+  if (cTypes.has(token)) return "code-type";
+  if (/^(?:0[xX][0-9A-Fa-f]+|\d)/.test(token)) return "code-number";
+  if (/^[+\-*/%=<>!&|^~?:]/.test(token)) return "code-operator";
+  if (/^[A-Za-z_]\w*$/.test(token) && /^\s*\(/.test(line.slice(index + token.length))) return "code-function";
+  return "";
+}
+
+function renderSnippet(source) {
+  const fragment = document.createDocumentFragment();
+  source.split("\n").forEach((line, lineNumber) => {
+    if (lineNumber) fragment.append(document.createTextNode("\n"));
+    if (/^\s*#/.test(line)) {
+      const directive = document.createElement("span");
+      directive.className = "code-preprocessor";
+      directive.textContent = line;
+      fragment.append(directive);
+      return;
+    }
+    let cursor = 0;
+    for (const match of line.matchAll(cTokenPattern)) {
+      if (match.index > cursor) fragment.append(document.createTextNode(line.slice(cursor, match.index)));
+      const className = cTokenClass(match[0], match.index, line);
+      if (className) {
+        const token = document.createElement("span");
+        token.className = className;
+        token.textContent = match[0];
+        fragment.append(token);
+      } else {
+        fragment.append(document.createTextNode(match[0]));
+      }
+      cursor = match.index + match[0].length;
+    }
+    if (cursor < line.length) fragment.append(document.createTextNode(line.slice(cursor)));
+  });
+  return fragment;
+}
+
+async function loadSnippet() {
+  try {
+    const response = await fetch("/snippet.c");
+    if (!response.ok) throw new Error("Could not load snippet.c");
+    $("#code-sample").replaceChildren(renderSnippet(await response.text()));
+  } catch (error) {
+    $("#code-sample").textContent = error.message;
+  }
+}
 
 function details(font) { return state.metadata[font.id] || {}; }
 function fmt(value) { return Number.isFinite(value) ? value.toLocaleString() : "—"; }
@@ -325,4 +388,5 @@ document.addEventListener("keydown", (event) => {
   event.preventDefault();
   toggleReject(state.selected, state.round);
 });
+loadSnippet();
 start();
