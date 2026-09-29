@@ -1,10 +1,15 @@
 const $ = (selector) => document.querySelector(selector);
-const state = { fonts: [], visible: [], metadata: {}, selected: null, sort: "name", descending: false, loadToken: 0 };
+const state = { fonts: [], visible: [], metadata: {}, selected: null, displayed: null, sort: "name", descending: false, loadToken: 0 };
 const loadedFaces = new Map();
 const controls = ["#search", "#serif-filter", "#glyph-filter", "#glyph-min", "#height-max"];
 
 function details(font) { return state.metadata[font.id] || {}; }
 function fmt(value) { return Number.isFinite(value) ? value.toLocaleString() : "—"; }
+function updatePreviewDetails(font) {
+  const data = details(font);
+  const size = Number($("#preview-size").value);
+  $("#preview-details").textContent = `${data.serif ? "Serif" : "Sans serif"} · ${fmt(data.glyphCount)} glyphs · ${data.heightEm ? (data.heightEm * size).toFixed(1) + " px line height" : "Height unmeasured"}`;
+}
 
 function filteredFonts() {
   const search = $("#search").value.trim().toLowerCase();
@@ -77,6 +82,14 @@ function updatePreviewPosition() {
   $("#next-font").disabled = index < 0 || index >= state.visible.length - 1;
 }
 
+function pinPreviewTop(dialog) {
+  const top = Math.max(16, dialog.getBoundingClientRect().top);
+  dialog.style.top = `${top}px`;
+  dialog.style.bottom = "auto";
+  dialog.style.marginBlock = "0";
+  dialog.style.maxHeight = `calc(100dvh - ${top + 16}px)`;
+}
+
 async function loadFont(font) {
   if (loadedFaces.has(font.id)) return loadedFaces.get(font.id);
   const promise = (async () => {
@@ -103,21 +116,39 @@ async function openPreview(identifier) {
   state.selected = identifier;
   const token = ++state.loadToken;
   const dialog = $("#preview");
-  if (!dialog.open) dialog.showModal();
-  $("#preview-name").textContent = font.name;
-  $("#preview-status").textContent = "Loading font…";
-  $("#preview-surface").style.fontFamily = "ui-monospace, monospace";
-  $("#download-link").href = font.downloadUrl;
-  const data = details(font);
-  $("#preview-details").textContent = `${data.serif ? "Serif" : "Sans serif"} · ${fmt(data.glyphCount)} glyphs · ${data.heightEm ? (data.heightEm * 16).toFixed(1) + " px line height" : "Height unmeasured"}`;
-  updatePreviewPosition();
+  if (!dialog.open) {
+    state.displayed = null;
+    $("#preview-name").textContent = "";
+    $("#preview-position").textContent = "";
+    $("#preview-details").textContent = "";
+    $("#preview-status").textContent = "Loading font…";
+    $("#preview-surface").style.fontFamily = "ui-monospace, monospace";
+    $("#preview-surface").style.lineHeight = "normal";
+    $("#download-link").hidden = true;
+    $("#previous-font").disabled = true;
+    $("#next-font").disabled = true;
+    dialog.showModal();
+  }
   try {
     const family = await loadFont(font);
     if (token !== state.loadToken || !dialog.open) return;
+    state.displayed = identifier;
+    const data = details(font);
+    $("#preview-name").textContent = font.name;
     $("#preview-surface").style.fontFamily = `"${family}", ui-monospace, monospace`;
+    $("#preview-surface").style.lineHeight = data.heightEm || "normal";
     $("#preview-status").textContent = "Font ready · Use ↑ ↓ to browse visible fonts";
+    $("#download-link").href = font.downloadUrl;
+    $("#download-link").hidden = false;
+    updatePreviewDetails(font);
+    updatePreviewPosition();
+    if (!dialog.style.top) pinPreviewTop(dialog);
   } catch (error) {
-    if (token === state.loadToken) $("#preview-status").textContent = error.message;
+    if (token === state.loadToken) {
+      state.selected = state.displayed ?? identifier;
+      $("#preview-status").textContent = error.message;
+      updatePreviewPosition();
+    }
   }
 }
 
@@ -159,18 +190,28 @@ document.querySelectorAll("[data-sort]").forEach((button) => button.addEventList
   render();
 }));
 $("#close-preview").addEventListener("click", () => $("#preview").close());
-$("#preview").addEventListener("close", () => { state.loadToken++; });
+$("#preview").addEventListener("close", () => {
+  state.loadToken++;
+  const dialog = $("#preview");
+  dialog.style.top = "";
+  dialog.style.bottom = "";
+  dialog.style.marginBlock = "";
+  dialog.style.maxHeight = "";
+});
 $("#previous-font").addEventListener("click", () => movePreview(-1));
 $("#next-font").addEventListener("click", () => movePreview(1));
 $("#preview-size").addEventListener("input", (event) => {
   const size = event.target.value;
   $("#preview-surface").style.fontSize = `${size}px`;
   $("#size-value").value = `${size} px`;
+  const font = state.fonts.find((item) => item.id === state.displayed);
+  if (font) updatePreviewDetails(font);
 });
 document.addEventListener("keydown", (event) => {
   if (!$("#preview").open || event.target.matches("textarea, input")) return;
   if (event.key === "ArrowUp" || event.key === "ArrowDown") {
     event.preventDefault();
+    if (event.repeat) return;
     movePreview(event.key === "ArrowUp" ? -1 : 1);
   }
 });

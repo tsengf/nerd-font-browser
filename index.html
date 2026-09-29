@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nerd Font Browser</title>
-  <link rel="stylesheet" href="/styles.css">
-  <script defer src="/app.js"></script>
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <script defer src="/app.js?v=4"></script>
 </head>
 <body>
   <header class="site-header">
@@ -47,12 +47,12 @@
       <div class="dialog-header"><div><p class="eyebrow">LIVE PREVIEW <span id="preview-position"></span></p><h2 id="preview-name"></h2></div><button id="close-preview" class="icon-button" type="button" aria-label="Close preview">×</button></div>
       <div class="preview-controls"><label>Size <input id="preview-size" type="range" min="12" max="36" value="16"><output id="size-value">16 px</output></label><div class="preview-nav"><button id="previous-font" type="button" aria-label="Previous visible font">↑ Previous</button><button id="next-font" type="button" aria-label="Next visible font">↓ Next</button></div></div>
       <p id="preview-status" class="preview-status" role="status"></p>
-      <div id="preview-surface" class="preview-surface"><div class="preview-caption">CODE SAMPLE</div><pre id="code-sample">// The quick brown fox jumps over the lazy dog.
-const glyphs = ["", "󰘧", "󰊢", "󰍉"];
-function preview(font) {
-  return `${font.name} → 0123456789`;
+      <div id="preview-surface" class="preview-surface"><div class="preview-caption">CODE SAMPLE</div><pre id="code-sample"><span class="code-comment">// The quick brown fox jumps over the lazy dog.</span>
+<span class="code-keyword">const</span> glyphs <span class="code-operator">=</span> [<span class="code-string">""</span>, <span class="code-string">"󰘧"</span>, <span class="code-string">"󰊢"</span>, <span class="code-string">"󰍉"</span>];
+<span class="code-keyword">function</span> <span class="code-function">preview</span>(font) {
+  <span class="code-keyword">return</span> <span class="code-string">`${</span>font.name<span class="code-string">} → 0123456789`</span>;
 }
-// Il1| O0o · !@#$%^&*()_+-=[]{};:'",.<>/?</pre><div class="preview-caption second-caption">YOUR TEXT</div><textarea id="custom-sample" aria-label="Custom preview text" spellcheck="false" placeholder="Type your own text here…">Sphinx of black quartz, judge my vow.
+<span class="code-comment">// Il1| O0o · !@#$%^&amp;*()_+-=[]{};:'",.&lt;&gt;/?</span></pre><div class="preview-caption second-caption">YOUR TEXT</div><textarea id="custom-sample" aria-label="Custom preview text" spellcheck="false" placeholder="Type your own text here…">Sphinx of black quartz, judge my vow.
 0123456789  →  != == ===  {} [] ()</textarea></div>
       <div class="dialog-footer"><span id="preview-details"></span><a id="download-link" target="_blank" rel="noopener noreferrer">Download font ↗</a></div>
     </div>

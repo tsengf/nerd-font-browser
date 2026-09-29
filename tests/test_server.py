@@ -52,7 +52,10 @@ class HttpTests(unittest.TestCase):
         self.assertEqual(len(data["fonts"]), len(server.FONTS))
         self.assertEqual(set(data["metadata"]), set(server.FONTS))
         with urllib.request.urlopen(self.base + "/") as response:
+            self.assertEqual(response.headers["Cache-Control"], "no-store")
             self.assertIn(b"Nerd Font Browser", response.read())
+        with urllib.request.urlopen(self.base + "/app.js") as response:
+            self.assertEqual(response.headers["Cache-Control"], "no-store")
 
     def test_unknown_font_is_rejected(self):
         with self.assertRaises(urllib.error.HTTPError) as error:

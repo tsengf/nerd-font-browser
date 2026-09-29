@@ -130,8 +130,9 @@ tbody tr:hover { background: #20231d; }
 .empty-state { margin: 0; padding: 48px 20px; color: var(--muted); text-align: center; }
 
 dialog {
-  width: min(890px, calc(100% - 30px));
-  max-height: calc(100% - 30px);
+  position: fixed;
+  width: min(900px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -157,9 +158,14 @@ dialog::backdrop { background: rgba(0, 0, 0, .76); }
 .preview-status { height: 21px; margin: 8px 0; color: var(--muted); font-size: 12px; }
 .preview-surface { overflow: auto; padding: 26px 28px; border: 1px solid #272a25; border-radius: 7px; background: #0c0e0c; color: #dfe3d8; font-family: ui-monospace, monospace; font-size: 16px; }
 .preview-caption { color: var(--acid); font-family: "DM Sans", system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .17em; }
-.preview-surface pre { overflow: auto; margin: 18px 0 27px; font: inherit; line-height: 1.55; white-space: pre; }
+.preview-surface pre { overflow: auto; margin: 18px 0 27px; font: inherit; white-space: pre; }
+.code-comment { color: #71786b; }
+.code-keyword { color: #e587ff; }
+.code-function { color: #d7ff43; }
+.code-string { color: #9ed37a; }
+.code-operator { color: #ff8d74; }
 .second-caption { padding-top: 19px; border-top: 1px solid #242720; }
-.preview-surface textarea { display: block; width: 100%; min-height: 92px; padding: 14px 0 0; resize: vertical; border: 0; background: transparent; color: inherit; line-height: 1.55; outline-offset: 3px; }
+.preview-surface textarea { display: block; width: 100%; min-height: 92px; padding: 14px 0 0; resize: vertical; border: 0; background: transparent; color: inherit; line-height: inherit; outline-offset: 3px; }
 .preview-surface textarea::placeholder { color: var(--muted); }
 .dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 21px; color: var(--muted); font-size: 12px; }
 .dialog-footer a { color: var(--acid); font-weight: 700; text-decoration: none; white-space: nowrap; }
